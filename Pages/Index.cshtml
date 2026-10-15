@@ -1,0 +1,27 @@
+@page
+@model IndexModel
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Demo entry</title>
+    <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+    <main>
+        <h1>Order maintenance</h1>
+        <p>Enter a demo secret of at least ten characters. First use creates a demo user; the same secret returns to that user. All demo users share the orders.</p>
+        <p>This is a local demonstration. Use a made-up secret, never a real password.</p>
+
+        <form method="post">
+            <label asp-for="Secret">Demo secret (at least 10 characters)</label>
+            <input asp-for="Secret" type="password" minlength="10"
+                   required autocomplete="off" value="">
+
+            <div asp-validation-summary="All" role="alert"></div>
+            <button type="submit">Enter</button>
+        </form>
+    </main>
+</body>
+</html>

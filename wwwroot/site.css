@@ -1,0 +1,49 @@
+body {
+    font: 16px system-ui, sans-serif;
+    color: #20252b;
+    background: #f5f6f8;
+    margin: 2rem 1rem;
+    ;
+}
+
+main {
+    max-width: 42rem;
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    ;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    ;
+}
+
+input, select, textarea, button {
+    font: inherit;
+    padding: .5rem;
+    box-sizing: border-box;
+    ;
+}
+
+textarea {
+    width: 100%;
+    ;
+}
+
+button {
+    margin: .75rem 0;
+    cursor: pointer;
+    ;
+}
+
+fieldset {
+    margin-top: 1rem;
+    ;
+}
+
+.validation-summary-errors {
+    color: #a01616;
+    ;
+}

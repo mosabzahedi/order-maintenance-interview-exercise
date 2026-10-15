@@ -1,0 +1,53 @@
+@page
+@model OrdersModel
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Order maintenance</title>
+    <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+    <main>
+        <h1>Order maintenance</h1>
+        <p>Demo user @User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value · Shared orders</p>
+
+        <form method="post" asp-page-handler="Leave">
+            <button>Leave demo</button>
+        </form>
+
+        <p>Select an order and load it to edit.</p>
+        <label for="order-id">Order</label>
+        <select id="order-id">
+            @foreach (var order in Model.Orders)
+            {
+                <option value="@order.Id">@order.TrackingNumber</option>
+            }
+        </select>
+        <button id="load" type="button">Load order</button>
+
+        <form id="edit">
+            @Html.AntiForgeryToken()
+
+            <fieldset id="fields" disabled>
+                <legend id="customer">Order details</legend>
+
+                <label for="status">Status</label>
+                <select id="status">
+                    <option>Pending</option>
+                    <option>Approved</option>
+                </select>
+
+                <label for="note">Customer note</label>
+                <textarea id="note" maxlength="500" rows="4"></textarea>
+
+                <button id="save" type="submit">Save</button>
+            </fieldset>
+        </form>
+
+        <p id="message" role="status" aria-live="polite"></p>
+        <script src="/orders.js"></script>
+    </main>
+</body>
+</html>
